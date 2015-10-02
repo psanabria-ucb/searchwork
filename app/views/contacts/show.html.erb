@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @contact.info %>
+</p>
+
+<p>
+  <strong>Work post:</strong>
+  <%= @contact.work_post_id %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
