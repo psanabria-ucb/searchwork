@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002145216) do
+ActiveRecord::Schema.define(version: 20151002161250) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "info",         limit: 50, null: false
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20151002145216) do
   add_index "contacts", ["work_post_id"], name: "index_contacts_on_work_post_id"
 
   create_table "work_posts", force: :cascade do |t|
-    t.string   "title",       limit: 50, null: false
+    t.string   "title",       limit: 100, null: false
     t.text     "description"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end
