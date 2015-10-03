@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
+  get 'dip_tarija' => 'static_pages#dip_tarija'
+
   resources :contacts
   resources :work_posts
   # The priority is based upon order of creation: first created -> highest priority.
