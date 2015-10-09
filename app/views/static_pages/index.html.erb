@@ -1,3 +1,17 @@
 <h1>Welcome</h1>
 <p><%= link_to "Work Posts", work_posts_path(format: :json) %></p>
 <p><%= link_to "Archivos dip Tarija 1 version", dip_tarija_path %></p>
+
+<h2>Documentación de la API</h2>
+<h3>Obtener todas los posts de trabajo</h3>
+<code>
+GET <%= work_posts_path %>.json
+</code>
+
+<h3>Insertar un post de trabajo</h3>
+<code>
+  POST <%= work_posts_path %>.json<br />
+  Data:<br />
+  {"work_post":{"title":"Title of the Job Post","description":"Text with the description","contacts":["Phone1", "Phone2", ..., "PhoneN"]}}
+</code>
+

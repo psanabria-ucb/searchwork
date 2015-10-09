@@ -24,10 +24,15 @@ class WorkPostsController < ApplicationController
   # POST /work_posts
   # POST /work_posts.json
   def create
-    @work_post = WorkPost.new(work_post_params)
+    @work_post = WorkPost.new(work_post_params.except(:contacts))
 
     respond_to do |format|
       if @work_post.save
+        unless work_post_params[:contacts].nil?
+          work_post_params[:contacts].each do |contact|
+            Contact.create(info: contact, work_post: @work_post)
+          end
+        end
         format.html { redirect_to @work_post, notice: 'Work post was successfully created.' }
         format.json { render :show, status: :created, location: @work_post }
       else
@@ -69,6 +74,6 @@ class WorkPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_post_params
-      params.require(:work_post).permit(:title, :description)
+      params.require(:work_post).permit(:title, :description, contacts: [])
     end
 end
